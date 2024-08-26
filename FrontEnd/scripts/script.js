@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Fonction pour afficher les travaux filtrés
   function displayWorks(filteredWorks) {
     const gallery = document.querySelector(".gallery");
+    gallery.innerHTML = ""; // Vider la galerie
 
     filteredWorks.forEach((work) => {
       const figure = document.createElement("figure");
@@ -66,9 +67,4 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch((error) => {
       console.error("Erreur lors de la récupération des données:", error);
     });
-});
-
-let login = document.querySelectorAll(".login");
-login.addEventListener("click", (event) => {
-  console.log("login cliqué");
 });
