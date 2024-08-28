@@ -7,17 +7,17 @@ document.addEventListener("DOMContentLoaded", function () {
     gallery.innerHTML = ""; // Vider la galerie
 
     filteredWorks.forEach((work) => {
-      const figure = document.createElement("figure");
+      const project = document.createElement("project");
       const img = document.createElement("img");
-      const figcaption = document.createElement("figcaption");
+      const imgTitle = document.createElement("imgTitle");
 
       img.src = work.imageUrl;
       img.alt = work.title;
-      figcaption.textContent = work.title;
+      imgTitle.textContent = work.title;
 
-      figure.appendChild(img);
-      figure.appendChild(figcaption);
-      gallery.appendChild(figure);
+      project.appendChild(img);
+      project.appendChild(imgTitle);
+      gallery.appendChild(project);
     });
   }
 
