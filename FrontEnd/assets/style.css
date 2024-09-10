@@ -185,4 +185,16 @@ footer nav ul {
 	justify-content: flex-end;
 	margin: 2em
 }
+#edit-mode-banner {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+	display: none;
+}
 

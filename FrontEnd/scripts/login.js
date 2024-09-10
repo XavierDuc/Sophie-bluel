@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("userId", data.userId);
         // Redirection vers la page d'accueil
         window.location.href = "index.html";
+        document.createElement("div");
       })
       .catch((error) => {
         alert(error.message);

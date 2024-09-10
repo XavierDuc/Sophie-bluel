@@ -68,3 +68,28 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Erreur lors de la récupération des données:", error);
     });
 });
+
+function updateLoginStatus() {
+  const loginLi = document.querySelector('nav ul li a[href="./login.html"]');
+  const token = localStorage.getItem("token");
+  const banner = document.getElementById("edit-mode-banner");
+
+  if (token) {
+    loginLi.innerHTML = "logout";
+    banner.style.display = "block";
+    loginLi.addEventListener("click", logout);
+  } else if (!token) {
+    loginLi.textContent = "login";
+    loginLi.addEventListener("click", () => {
+      window.location.href = "login.html";
+    });
+  }
+}
+
+updateLoginStatus();
+
+function logout() {
+  localStorage.removeItem("token");
+  updateLoginStatus();
+  window.location.reload();
+}
