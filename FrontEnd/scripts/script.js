@@ -23,6 +23,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Fonction pour créer le menu de filtres
   function createFilterMenu(categories) {
+    const token = localStorage.getItem("token");
+
     const filterMenu = document.createElement("div");
     filterMenu.className = "filter-menu";
 
@@ -32,9 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
     allButton.addEventListener("click", () => displayWorks(works));
     filterMenu.appendChild(allButton);
 
-    const token = localStorage.getItem("token");
     if (token) {
-      allButton = none;
+      allButton.style.display = "none";
     }
 
     // Ajouter un bouton pour chaque catégorie
@@ -48,6 +49,9 @@ document.addEventListener("DOMContentLoaded", function () {
         displayWorks(filteredWorks);
       });
       filterMenu.appendChild(button);
+      if (token) {
+        button.style.display = "none";
+      }
     });
 
     // Ajouter le menu de filtres avant la galerie
@@ -83,6 +87,8 @@ function updateLoginStatus() {
     loginLi.innerHTML = "logout";
     banner.style.display = "block";
     loginLi.addEventListener("click", logout);
+    const openModalDiv = document.createElement("div");
+    openModalDiv.innerHTML = "modifié";
   } else if (!token) {
     loginLi.textContent = "login";
     loginLi.addEventListener("click", () => {
