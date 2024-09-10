@@ -32,6 +32,11 @@ document.addEventListener("DOMContentLoaded", function () {
     allButton.addEventListener("click", () => displayWorks(works));
     filterMenu.appendChild(allButton);
 
+    const token = localStorage.getItem("token");
+    if (token) {
+      allButton = none;
+    }
+
     // Ajouter un bouton pour chaque catégorie
     categories.forEach((category) => {
       const button = document.createElement("button");
