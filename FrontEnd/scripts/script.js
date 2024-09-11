@@ -87,14 +87,13 @@ function updateLoginStatus() {
     loginLi.innerHTML = "logout";
     banner.style.display = "block";
     loginLi.addEventListener("click", logout);
-    const openModalDiv = document.createElement("div");
-    openModalDiv.innerHTML = "modifié";
   } else if (!token) {
     loginLi.textContent = "login";
     loginLi.addEventListener("click", () => {
       window.location.href = "login.html";
     });
   }
+  addModal();
 }
 
 updateLoginStatus();
@@ -103,4 +102,38 @@ function logout() {
   localStorage.removeItem("token");
   updateLoginStatus();
   window.location.reload();
+}
+
+function addModal() {
+  const token = localStorage.getItem("token");
+  const portfolio = document.getElementById("portfolio");
+  const gallery = document.querySelector(".gallery");
+
+  gallery.addEventListener("click", () => console.log("gallery"));
+
+  if (token) {
+    const h2 = portfolio.querySelector("h2");
+
+    const divModifier = document.createElement("div");
+    divModifier.textContent = "modifier";
+    divModifier.classList.add("modifier");
+
+    portfolio.insertBefore(divModifier, h2);
+
+    divModifier.style.position = "absolute";
+    divModifier.style.marginLeft = "10px";
+    divModifier.style.background = "none";
+    divModifier.style.border = "none";
+    divModifier.style.color = "black";
+    divModifier.style.cursor = "pointer";
+    divModifier.style.fontSize = "14px";
+    divModifier.style.top = "545px";
+    divModifier.style.left = "950px";
+
+    const icon = document.createElement("i");
+    icon.classList.add("fa-regular", "fa-pen-to-square");
+    icon.style.marginRight = "10px";
+
+    divModifier.prepend(icon);
+  }
 }
