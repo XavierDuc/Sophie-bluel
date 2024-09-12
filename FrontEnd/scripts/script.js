@@ -107,9 +107,6 @@ function logout() {
 function addModal() {
   const token = localStorage.getItem("token");
   const portfolio = document.getElementById("portfolio");
-  const gallery = document.querySelector(".gallery");
-
-  gallery.addEventListener("click", () => console.log("gallery"));
 
   if (token) {
     const h2 = portfolio.querySelector("h2");
@@ -135,5 +132,88 @@ function addModal() {
     icon.style.marginRight = "10px";
 
     divModifier.prepend(icon);
+
+    divModifier.addEventListener("click", openModal);
+
+    createModal();
   }
 }
+
+function displayWorksinModal(filteredWorks) {
+  const modalGallery = document.querySelector(".modalGallery"); // Ensure modalGallery is selected
+  modalGallery.innerHTML = ""; // Clear any previous content
+
+  filteredWorks.forEach((work) => {
+    const project = document.createElement("div"); // Create a container div for each work
+    const img = document.createElement("img");
+
+    img.src = work.imageUrl;
+    img.alt = work.title;
+
+    project.appendChild(img);
+    modalGallery.appendChild(project);
+  });
+}
+
+function createModal() {
+  const modal = document.createElement("div");
+  modal.id = "workModal";
+  modal.className = "modal";
+  modal.style.display = "none";
+
+  const modalContent = document.createElement("div");
+  modalContent.className = "modal-content";
+
+  const closeBtn = document.createElement("span");
+  closeBtn.className = "close";
+  closeBtn.innerHTML = "&times;";
+  closeBtn.onclick = closeModal;
+
+  const modalText = document.createElement("span");
+  modalText.className = "modalText";
+  modalText.textContent = "Galerie photo";
+
+  const modalButton = document.createElement("button");
+  modalButton.className = "modalButton";
+  modalButton.textContent = "Ajouter une photo";
+
+  const modalGallery = document.createElement("div");
+  modalGallery.className = "modalGallery";
+
+  const modalLine = document.createElement("span");
+  modalLine.className = "modalLine";
+
+  modalContent.appendChild(closeBtn);
+  modalContent.appendChild(modalText);
+  modalContent.appendChild(modalGallery);
+  modalContent.appendChild(modalLine);
+  modalContent.appendChild(modalButton);
+
+  modal.appendChild(modalContent);
+  document.body.appendChild(modal);
+
+  fetch("http://localhost:5678/api/works")
+    .then((response) => response.json())
+    .then((works) => displayWorksinModal(works));
+}
+
+function openModal() {
+  const modal = document.getElementById("workModal");
+  if (modal) {
+    modal.style.display = "block";
+  }
+}
+
+function closeModal() {
+  const modal = document.getElementById("workModal");
+  if (modal) {
+    modal.style.display = "none";
+  }
+}
+
+window.onclick = function (event) {
+  const modal = document.getElementById("workModal");
+  if (event.target == modal) {
+    closeModal();
+  }
+};
