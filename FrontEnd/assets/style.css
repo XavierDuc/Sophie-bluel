@@ -385,3 +385,12 @@ footer nav ul {
 	margin-left: 115px;
 	margin-top: 80px;
 }
+.delete-icon {
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 5px;
+	border-radius: 2px;
+  }
+  
+  .delete-icon:hover {
+	background-color: rgba(0, 0, 0, 0.7);
+  }
