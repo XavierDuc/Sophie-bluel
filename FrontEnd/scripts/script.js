@@ -298,6 +298,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const uploadWrapper = document.createElement("div");
     uploadWrapper.classList.add("upload-wrapper");
 
+    const imagePreview = document.createElement("img");
+    imagePreview.id = "imagePreview";
+    imagePreview.style.display = "none";
+    imagePreview.style.maxWidth = "100%";
+    imagePreview.style.maxHeight = "100%";
+    imagePreview.style.cursor = "pointer";
+    uploadWrapper.appendChild(imagePreview);
+
     const imageUploadIcon = document.createElement("i");
     imageUploadIcon.className = "fa-regular fa-image upload-icon";
     uploadWrapper.append(imageUploadIcon);
@@ -346,6 +354,46 @@ document.addEventListener("DOMContentLoaded", function () {
     titreTitle.className = "titreTitle";
     titreTitle.textContent = "Titre";
 
+    function handleImageSelection(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          imagePreview.src = e.target.result;
+          imagePreview.style.display = "block";
+          imageUploadIcon.style.display = "none";
+          imageUploadLabel.style.display = "none";
+          imageIndication.style.display = "none";
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    imageUpload.addEventListener("change", handleImageSelection);
+
+    imagePreview.addEventListener("click", function () {
+      imageUpload.click();
+    });
+
+    imageUpload.addEventListener("change", function (event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+          imagePreview.src = e.target.result;
+          imagePreview.style.display = "block";
+          imageUploadIcon.style.display = "none";
+          imageUploadLabel.style.display = "none";
+          imageIndication.style.display = "none";
+
+          console.log("Image preview src set to:", imagePreview.src);
+        };
+
+        reader.readAsDataURL(file);
+      }
+    });
+
     form.appendChild(uploadWrapper);
     form.appendChild(titleInput);
     form.appendChild(categorySelect);
@@ -357,7 +405,13 @@ document.addEventListener("DOMContentLoaded", function () {
       event.preventDefault();
       imageUpload.value = "";
       titleInput.value = "";
+      imagePreview.src = "";
+      imageUpload.value = "";
+      imagePreview.style.display = "none";
       categorySelect.selectedIndex = null;
+      imageUploadIcon.style.display = "block";
+      imageUploadLabel.style.display = "block";
+      imageIndication.style.display = "block";
     });
 
     modalContent.appendChild(closeBtn);
@@ -396,8 +450,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         categories.forEach((category) => {
           const option = document.createElement("option");
-          option.value = category.id; // Set category ID as value
-          option.textContent = category.name; // Set category name as text
+          option.value = category.id;
+          option.textContent = category.name;
           selectElement.appendChild(option);
         });
       })

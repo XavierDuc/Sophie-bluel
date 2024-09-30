@@ -191,6 +191,9 @@ li:hover {
 	color: #B1663C;
 }
 
+nav li a:hover{
+	color: #B1663C
+}
 #introduction {
 	display: flex;
 	align-items: center;
@@ -428,6 +431,7 @@ footer nav ul {
 	display: flex;
 	flex-direction: column;
 	margin-top: 90px;
+	align-items: center;
   }
   #addWorkForm .submitBtn{
 	font-family: 'Syne';
@@ -446,6 +450,7 @@ footer nav ul {
 	cursor: pointer;
   }
   #category{
+	width: 550px;
 	height: 50px;
 	margin-top: 50px;
 	margin-bottom: 5px;
@@ -453,12 +458,14 @@ footer nav ul {
  	box-shadow:rgba(0, 0, 0, 0.09) 0px 4px 14px 0px;
   }
   #title{
+	width: 550px;
 	height: 50px;
 	margin-bottom: 5px;
 	border-width: 0px;
 	box-shadow:rgba(0, 0, 0, 0.09) 0px 4px 14px 0px;
   }
   .upload-wrapper{
+	width: 500px;
 	background-color: rgba(232, 241, 246, 1);
 	padding: 30px;
 	display: flex;
@@ -487,18 +494,17 @@ footer nav ul {
   }
   .titreTitle{
 	position: absolute;
-	top: 575px;
-	left: 495px;
+	top: 685px;
+	left: 530px;
   }
   .categoryTitle{
 	position: absolute;
-	top: 685px;
-	left: 495px;
+	top: 580px;
+	left: 530px;
   }
   .imageUploadButton{
 	z-index: 0;
   }
-
   .filter-menu{
 	display: flex;
 	justify-content: center;
@@ -523,3 +529,12 @@ footer nav ul {
 	text-decoration: none;
 	color: black;
   }
+  #imagePreview {
+	max-width: fit-content;
+	max-height: fit-content;
+	object-fit: contain;
+	
+	width: 450px;
+	height: 140px;
+  }
+
