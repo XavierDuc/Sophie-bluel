@@ -342,6 +342,7 @@ footer nav ul {
 	font-weight: 400;
 	margin-top: 60px;
 	left: 750px;
+	color: black;
 }
 
 .modalButton {
@@ -393,4 +394,127 @@ footer nav ul {
   
   .delete-icon:hover {
 	background-color: rgba(0, 0, 0, 0.7);
+  }
+  #addModal{
+	display: none;
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.4);
+  }
+  #addModal .modal-content{
+	background-color: #fefefe;
+	margin: 15% auto;
+	padding: 20px;
+	border: 1px solid #fefefe;
+	width: 630px;
+	height: 690px;
+	border-radius: 10px;
+  }
+  #addModal h2{
+	font-family: 'Work Sans';
+	position: absolute;
+	font-size: 26px;
+	font-weight: 400;
+	margin-top: 60px;
+	left: 750px;
+	color: black;
+  }
+  #addWorkForm{
+	display: flex;
+	flex-direction: column;
+	margin-top: 150px;
+  }
+  #addWorkForm .submitBtn{
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	margin: 2em auto;
+	width: 250px;
+	height: 36px;
+	text-align: center;
+	border-radius: 60px;
+	top: 870px;
+	left: 690px;
+	border-width: 0;
+	position: absolute;
+	cursor: pointer;
+  }
+  #category{
+	height: 50px;
+	margin-top: 50px;
+	margin-bottom: 5px;
+	border-width: 0px;
+ 	box-shadow:rgba(0, 0, 0, 0.09) 0px 4px 14px 0px;
+  }
+  #title{
+	height: 50px;
+	margin-top: 150px;
+	margin-bottom: 5px;
+	border-width: 0px;
+	box-shadow:rgba(0, 0, 0, 0.09) 0px 4px 14px 0px;
+  }
+  .upload-wrapper{
+	background-color: red;
+	padding: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 30px;
+  }
+  .upload-image{
+	display: none;
+  }
+  .upload-label{
+	background-color: yellow;
+	padding: 10px 20px;
+	border-radius: 50px;
+	margin: 20px;
+  }
+  .upload-icon{
+	font-size: 3rem;
+	color: blue;
+  }
+  .upload-indication{
+	color: blue;
+  }
+  .titreTitle{
+	position: absolute;
+	top: 575px;
+	left: 490px;
+  }
+  .categoryTitle{
+	position: absolute;
+	top: 685px;
+	left: 490px;
+  }
+  .imageUploadButton{
+	z-index: 0;
+  }
+
+  .filter-menu{
+	display: flex;
+	justify-content: center;
+  }
+  .filter-menu button{
+	border-radius: 60px;
+	border-width: 1px;
+	background-color: white;
+	border-color: #1D6154;
+	width: 200px;
+	height: 40px;
+	margin-right: 10px;
+	margin-bottom: 30px;
+	font-family: 'Syne';
+	color: #1D6154;
+  }
+  nav ul li a{
+	text-decoration: none;
+	color: black;
   }
