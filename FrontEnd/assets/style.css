@@ -420,14 +420,14 @@ footer nav ul {
 	position: absolute;
 	font-size: 26px;
 	font-weight: 400;
-	margin-top: 60px;
+	margin-top: 40px;
 	left: 750px;
 	color: black;
   }
   #addWorkForm{
 	display: flex;
 	flex-direction: column;
-	margin-top: 150px;
+	margin-top: 90px;
   }
   #addWorkForm .submitBtn{
 	font-family: 'Syne';
@@ -454,45 +454,46 @@ footer nav ul {
   }
   #title{
 	height: 50px;
-	margin-top: 150px;
 	margin-bottom: 5px;
 	border-width: 0px;
 	box-shadow:rgba(0, 0, 0, 0.09) 0px 4px 14px 0px;
   }
   .upload-wrapper{
-	background-color: red;
+	background-color: rgba(232, 241, 246, 1);
 	padding: 30px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	border-radius: 30px;
+	border-radius: 5px;
+	margin-bottom: 40px;
   }
   .upload-image{
 	display: none;
   }
   .upload-label{
-	background-color: yellow;
+	background-color: rgba(185, 197, 204, 1);
 	padding: 10px 20px;
 	border-radius: 50px;
 	margin: 20px;
+	color: rgba(48, 102, 133, 1);
   }
   .upload-icon{
 	font-size: 3rem;
-	color: blue;
+	color:rgba(185, 197, 204, 1)
   }
   .upload-indication{
-	color: blue;
+	color: black
   }
   .titreTitle{
 	position: absolute;
 	top: 575px;
-	left: 490px;
+	left: 495px;
   }
   .categoryTitle{
 	position: absolute;
 	top: 685px;
-	left: 490px;
+	left: 495px;
   }
   .imageUploadButton{
 	z-index: 0;
@@ -515,6 +516,10 @@ footer nav ul {
 	color: #1D6154;
   }
   nav ul li a{
+	text-decoration: none;
+	color: black;
+  }
+  #login-form a{
 	text-decoration: none;
 	color: black;
   }
